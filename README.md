@@ -1,0 +1,2 @@
+# aina
+aina-wp-theme
