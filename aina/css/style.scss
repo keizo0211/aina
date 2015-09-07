@@ -1,0 +1,1007 @@
+@charset "UTF-8";
+/*
+Theme Name: aina
+Description: aina
+Author: hypes studio
+Author URI: http://hypestudio.jp/
+Version: 1.0
+License:
+License URI:
+*/
+//
+
+
+  /* ---------- component ---------- */
+  .cr {
+    clear: both;
+  }
+
+  $bg: #FCFBF1;
+  $black: #252525;
+  $white: #fefefe;
+  $gray: #66665E;
+  $l-gray: #EDEDED;
+  $l-gray-02: #DEDED5;
+  $ll-gray: #DEDEDE;
+  $pink: #C83563;
+  $green: #A2BF3B;
+  $deep-green: #798F2C;
+  $cream: #EBE8DD;
+  $l-cream: #F7F5F1;
+  $gray-blue:#91A2AA;
+  $brown:#867359;
+
+/* @mixin
+------------------------------------------------------------------------------*/
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin e-font {
+  font-family: 'Oxygen', sans-serif;
+}
+/* common
+------------------------------------------------------------------------------*/
+body {
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+/* header
+------------------------------------------------------------------------------*/
+header.main {
+  border-top: 3px solid $pink;
+  border-bottom: 2px solid $l-gray;
+  box-shadow: 0 -1px 0 0 rgba(0,0,0,0.2) inset;
+  .row {
+    margin-bottom: 0;
+    padding: 0;
+  }
+}
+
+.m-nav{
+  position: relative;
+  .m-nav-icon {
+    position: absolute;
+    top: 22px;
+    left: 0;
+    color: $gray;
+    .material-icons {
+      font-size: 36px;
+    }
+  }
+}
+
+.header-nav {
+  position: relative;
+  .small-nav {
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    li {
+      display: inline-block;
+      margin-left: 14px;
+      a {
+        color: $black;
+        font-size: 13px;
+        @include transition(color .25s linear);
+        &:hover {
+          color: $pink;
+        }
+      }
+      &.current_page_item a {
+        color: $pink;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.rent-buy {
+  margin-top: 44px;
+  li {
+    display: inline-block;
+    margin-left: 12px;
+    a {
+      display: block;
+      padding: 4px 42px;
+      color: $black;
+      font-size: 17px;
+      text-align: center;
+      border: 1px solid $gray;
+      @include transition(all 0.25s linear);
+      &:hover {
+        opacity: 0.9;
+        color: $white;
+        background: $pink;
+        border-color: $pink;
+      }
+    }
+    &.current a {
+      color: $white;
+      background: $pink;
+      border-color: $pink;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 993px) {
+  .logo {
+    margin:  23px auto 16px;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .logo {
+    margin:  25px auto 16px;
+    text-align: center;
+    img {
+      width: 260px;
+    }
+  }
+}
+@media only screen and (min-width: 993px) {
+  .logo {
+    margin:  40px auto 32px;
+    img {
+      width: 260px;
+    }
+  }
+}
+
+/* top
+------------------------------------------------------------------------------*/
+.recommend-list {
+  overflow: hidden;
+  margin-bottom: 10px;
+  .category-wrap {
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  h1 {
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    color: $black;
+    font-size: 26px;
+    border-bottom: 2px solid $pink;
+  }
+  h2 {
+    margin-top: 0;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    color: $white;
+    font-size: 18px;
+    background: $gray-blue;
+    // border: 1px solid $green;
+  }
+  .pagenation {
+    margin-bottom: 100px;
+  }
+}
+
+.recommend-list-inner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.property-card {
+  display: block;
+  background: $cream;
+  @include transition(all 0.25s linear);
+  &:hover {
+    opacity: 0.7;
+  }
+  .property-card-photo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 60% 0 0;
+    overflow: hidden;
+  }
+  .property-card-photo-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  p {
+    margin: 0 0 4px 0;
+    padding-left: 6px;
+    line-height: 1;
+    font-size: 13px;
+    color: $gray;
+    font-weight: normal;
+    @include e-font;
+    font-weight: 300;
+    &.place {
+      padding: 6px 0 4px 6px;
+      margin-bottom: 8px;
+      color: $black;
+      border-bottom: 1px solid $white;
+    }
+    sup {
+      margin-left: 2px;
+      font-size: 5px;
+      top: -0.25em;
+    }
+  }
+}
+
+.area-search,
+.request-search,
+.fb-area {
+  overflow: hidden;
+  margin-bottom: 20px;
+  h1 {
+    padding-bottom: 4px;
+    margin: 10px 0 0;
+    color: $black;
+    font-size: 26px;
+    vertical-align: top;
+    border-bottom: 2px solid $green;
+    i {
+      color: $gray;
+      font-size: 94%;
+    }
+  }
+}
+
+.area-list {
+  margin-top: 10px;
+  overflow: hidden;
+  li {
+    float: left;
+    width: 49.5%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    &.wide {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &:nth-child(2n){
+      margin-right: 0;
+      color: #f00;
+    }
+
+    a {
+      padding: 10px;
+      display: block;
+      color: $white;
+      font-size: 16px;
+      text-align: center;
+      background: $gray-blue;
+      @include transition(all 0.25s linear);
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.request-search {
+  .tag-cloud {
+    margin-top: 10px;
+    a {
+      display: inline-block;
+      margin: 0 2px 5px 0;
+      padding: 5px 16px;
+      font-size: 13px;
+      color: $gray;
+      border: 1px solid $gray;
+      @include transition(all 0.25s linear);
+      &:hover {
+        opacity: 0.7;
+        background: $gray;
+        color: $white;
+      }
+    }
+  }
+
+  ul {
+    margin-top: 10px;
+    font-size: 0;
+    li {
+      display: inline-block;
+      margin: 0 5px 5px 0;
+      a {
+        display: block;
+        padding: 5px 16px;
+        font-size: 13px;
+        color: $gray;
+        border: 1px solid $gray;
+        @include transition(all 0.25s linear);
+        &:hover {
+          opacity: 0.7;
+          background: $gray;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.bnr-area {
+  padding: 20px 0 5px;
+  background: $l-gray;
+  img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  .recommend-list,
+  .area-search,
+  .request-search {
+    h1 {
+      font-size: 23px;
+    }
+  }
+  .property-card {
+    width: 100%;
+    padding-bottom: 2px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    float: none;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .property-card {
+    width: 32%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    float: left;
+    &:nth-child(3n+1){
+      margin-right: 0;
+    }
+  }
+}
+@media only screen and (min-width: 993px) {
+  .property-card {
+    width: 24%;
+    margin-bottom: 1.25%;
+    margin-right: 1.25%;
+    float: left;
+    background: $cream;
+    &:nth-child(4n+1){
+      margin-right: 0;
+    }
+  }
+}
+
+/* facebook
+------------------------------------------------------------------------------*/
+.fb-area {
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+
+.fb-wrap {
+  margin-top: 10px;
+  padding: 0;
+}
+
+.fb_iframe_widget,
+.fb_iframe_widget[style],
+.fb_iframe_widget iframe[style],
+.fb_iframe_widget span{
+  width: 100% !important;
+}
+
+/* 固定ページ共通
+------------------------------------------------------------------------------*/
+.cmn-page {
+  overflow: hidden;
+  margin-bottom: 20px;
+  h1 {
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    color: $black;
+    font-size: 26px;
+    border-bottom: 2px solid $pink;
+  }
+  .row img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 個別ページ共通
+------------------------------------------------------------------------------*/
+.single-post {
+  h1 {
+    padding-bottom: 4px;
+    margin-bottom: 0;
+    color: $black;
+    font-size: 26px;
+    border-bottom: 2px solid $pink;
+  }
+  h2 {
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    color: $white;
+    font-size: 20px;
+    background: $green;
+  }
+}
+
+.no-area {
+  min-height: 150px;
+}
+
+/* 個別ページ・記事
+------------------------------------------------------------------------------*/
+// 写真
+.estate-gallery {
+  text-align: center;
+  p {
+    vertical-align: top;
+    display: inline-block;
+    color: $gray;
+    text-align: center;
+    font-size: 12px;
+  }
+  img {
+    width: 140px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  .estate-gallery img {
+    width: 240px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .estate-gallery img {
+    width: 159px;
+  }
+}
+@media only screen and (min-width: 993px) {
+  .estate-gallery img {
+    width: 175px;
+  }
+}
+
+
+.room-layout {
+  text-align: center;
+  img {
+    width: auto;
+    height: 250px;
+  }
+}
+
+
+// テーブル
+.table-date {
+  border-top: 1px solid $l-gray;
+  // background: $cream;
+  th {
+    width: 35%;
+    text-align: left;
+    padding: 10px 8px;
+    font-weight: normal;
+    line-height: 1;
+    color: $gray;
+    background: $cream;
+    border-bottom: 1px solid $white;
+    vertical-align: top;
+    text-align: left;
+    word-break: break-all;
+  }
+  td {
+    padding: 4px 6px;
+    color: $gray;
+    border-bottom: 1px solid $l-gray;
+    vertical-align: middle;
+    word-break: break-all;
+  }
+}
+
+.estate-number {
+  margin: -14px 0 0 4px;
+  color: $gray;
+}
+
+@media only screen and (max-width:993px) {
+  .table-date {
+    border-collapse: separate;
+    th,td {
+      width: 100%;
+      display: block;
+      border-top: none;
+    }
+    th {
+      padding: 6px 8px;
+      display: block;
+      text-align: left;
+    }
+    td {
+      display: block;
+      padding: 4px 0 10px 10px;
+    }
+    tr:first-child th {
+      border-top:none;
+    }
+  }
+}
+
+// google map
+.acf-map {
+  width: 100%;
+  height: 400px;
+  border: $l-gray solid 1px;
+  margin: 20px 0;
+}
+
+.simplemap {
+  margin-top: 10px;
+}
+
+.striped th {
+  vertical-align: top;
+  width: 14%;
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 601px) {
+  .striped {
+    border-collapse: separate;
+    th, td {
+      width: 100%;
+      display: block;
+      border-top: none;
+    }
+    th {
+      padding: 5px 0 0 10px;
+      margin-top: 5px;
+      display: block;
+      text-align: left;
+
+    }
+    td {
+      display: block;
+      padding: 5px 0 5px 10px;
+      margin-bottom: 4px;
+
+    }
+    tr:first-child th {
+      border-top: none;
+    }
+  }
+}
+
+//問い合わせ
+.estate-contact {
+  // background: $cream;
+  // border: 1px solid $cream;
+  padding: 0;
+  .materialize-textarea {
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 18;
+  }
+  .input-field {
+    margin-top: 5px;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0;
+  font-size: 18px;
+  border: 1px solid $l-gray;
+  background: $brown;
+  color: #fff;
+}
+
+.point {
+  padding: 5px 10px;
+  color: $gray;
+}
+
+.contact-form {
+    padding: 20px 20px 10px;
+    background: $l-cream;
+    width: 100%;
+    font-size: 14px;
+    color: $gray;
+    dl {
+    }
+    dt {
+    color: $gray;
+    }
+    dd {
+    -webkit-margin-start: 0;
+    }
+    select {
+      display: block;
+      margin-bottom: 20px;
+      border: 1px solid $l-gray-02;
+    }
+    textarea {
+      height: 9rem;
+      padding: 0 10px;
+      border: 1px solid $l-gray-02;
+      background: $white;
+      box-sizing: border-box;
+    }
+    .wpcf7-form-control-wrap {
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px $cream inset;
+}
+  /* label underline color */
+  .input-field {
+    input[type=text],
+    input[type=email],
+    input[type=tel] {
+      border-bottom: 1px solid $gray;
+      height: inherit;
+      font-size: 1.8rem;
+    }
+  }
+
+  /* label color */
+   .input-field label {
+     color: $gray;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label,
+  .input-field input[type=email]:focus + label {
+     color: $green;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus,
+   .input-field input[type=email]:focus,
+   .input-field input[type=tel]:focus,
+   .materialize-textarea:focus:not([readonly]) {
+     border-bottom: 1px solid $green;
+     box-shadow: 0 1px 0 0 $green;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid $pink;
+     box-shadow: 0 1px 0 0 $pink;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid $pink;
+     box-shadow: 0 1px 0 0 $pink;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: $pink;
+   }
+   select:focus {
+    outline: 1px solid $green;
+  }
+
+  .btn-large {
+    line-height: 55px;
+  }
+
+  .wpcf7-not-valid-tip {
+    color: $pink;
+    margin-bottom: 14px;
+  }
+
+.radio-field {
+  padding-bottom: 10px;
+  margin: 10px 0 20px;
+  border-bottom: 1px solid $gray;
+}
+
+.access .wpcf7-textarea {
+  margin-bottom: 20px;
+}
+
+
+/***************
+   Checkboxes
+***************/
+label {
+  font-size: 120%;
+}
+/* CUSTOM CSS CHECKBOXES */
+form p {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+form p:last-child {
+  margin-bottom: 0;
+}
+
+.wpcf7-form-control-wrap {
+  overflow: hidden;
+}
+
+.checkbox-wrap {
+  margin-bottom: 20px;
+  .cf7-checkbox {
+    padding: 10px 10px 10px 0;
+    background: $white;
+    border: 1px solid $cream;
+  }
+}
+
+.cf7-checkbox {
+  display: block;
+  overflow: hidden;
+}
+
+.cf7-checkbox .wpcf7-list-item {
+  display: block;
+  float: left;
+  line-height: 30px;
+  margin-left: 1em;
+}
+
+/* Remove default checkbox */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: relative;
+  left: 0;
+  visibility: visible;
+}
+
+/* ページ送り */
+.prev-next {
+  margin: 20px 0;
+  padding-top: 6px;
+  border-top: 1px solid $l-gray;
+  overflow: hidden;
+  p {
+    margin-top: 0;
+      float: left;
+    &.next-post {
+      float: right;
+    }
+  }
+  a {
+    color: $gray;
+    @include transition(all 0.25s linear);
+    &:hover {
+      color: $pink;
+    }
+    i {
+      margin: 0 3px;
+    }
+  }
+}
+
+/* ページ送り ナビゲーション */
+.page-nav {
+  margin: 40px 0 40px;
+  padding: 8px 0;
+  display:table;
+  table-layout: fixed;
+  width: 100%;
+  border-top: 1px solid $cream;
+  border-bottom: 1px solid $cream;
+  font-size: 120%;
+  li{
+    display:table-cell;
+    vertical-align:middle;
+    padding: 0 10px;
+  }
+  a {
+    color: $pink;
+    @include transition(all 0.25s linear);
+    &:hover {
+      color: $green;
+    }
+    i {
+      font-size: 90%;
+      margin: 0 3px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 601px) {
+  .page-nav {
+    font-size: 110%;
+  }
+}
+
+/*Pagenation*/
+.wrap-pagination {
+  padding: 5px 0 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid $cream;
+}
+
+.pagination {
+  margin: 0 auto;
+  display: table;
+  li {
+    color: $cream;
+    &.active {
+    color: #fff;
+    background: $pink;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .pagination {
+    width: initial;
+    li {
+      &.prev,&.next {
+        width: initial;
+      }
+    }
+  }
+}
+
+// .pagenation {
+//   margin: 0.5em 0 40px;
+//   ul {
+//     margin: 0;
+//     overflow: hidden;
+//   }
+//   li {
+//     float: left;
+//     list-style: none outside none;
+//     margin-left: 3px;
+//   }
+//   li:first-child {
+//     margin-left: 0;
+//   }
+//   li.active {
+//     background-color: #999999;
+//     border-radius: 3px;
+//     color: #FFFFFF;
+//     cursor: not-allowed;
+//     padding: 10px 20px;
+//   }
+//   li a {
+//     background: none repeat scroll 0 0 #CCCCCC;
+//     border-radius: 3px;
+//     color: #FFFFFF;
+//     display: block;
+//     padding: 10px 20px;
+//     text-decoration: none;
+//     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+//   }
+//   li a:hover {
+//     background-color: #444444;
+//     color: #FFFFFF;
+//     opacity: 0.8;
+//     transition-duration: 500ms;
+//     transition-property: all;
+//     transition-timing-function: ease;
+//   }
+// }
+
+/* privacy
+------------------------------------------------------------------------------*/
+.privacy {
+  padding: 1em;
+  background: $l-cream;
+  dt {
+    margin: 0 0 3px;
+    padding: 0;
+    font-weight: bold;
+  }
+  dd {
+    margin: 0 0 20px;
+    padding: 0;
+  }
+}
+
+
+
+
+/* footer
+------------------------------------------------------------------------------*/
+footer.green {
+  padding-top: 16px;
+  font-size: 12px;
+  color: $white;
+  .row {
+    margin-bottom: 0;
+  }
+  a {
+    color: $white;
+    @include transition(all 0.25s linear);
+    &:hover {
+      color: $deep-green;
+    }
+  }
+}
+
+.fotter-logo {
+  margin-bottom: 10px;
+  text-align: center;
+  img {
+    width: 90%;
+  }
+}
+
+.footer-info {
+  margin-bottom: 20px;
+  p {
+    margin: 0;
+    line-height: 1.5;
+    &.contact {
+      margin: -6px 0 10px;
+    }
+    .tel {
+      margin-left: 0.25em;
+      font-size: 24px;
+      @include e-font;
+      letter-spacing: 0.05em;
+      vertical-align: sub;
+    }
+  }
+}
+
+.bus-time {
+  width: 100%;
+  margin-top: 6px;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 12px;
+  color: $white;
+  border: 1px solid $white;
+}
+
+.footer-links {
+  text-align: right;
+}
+
+@media only screen and (max-width: 993px) {
+  .footer-links {
+    text-align: center;
+  }
+  .footer-info {
+    margin-bottom: 20px;
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-size: 13px;
+      &.contact {
+        margin: -6px 0 10px;
+      }
+      .tel {
+        margin-left: 0.25em;
+        font-size: 22px;
+        @include e-font;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 601px) {
+  .tel {
+    display: block;
+    font-size: 36px;
+  }
+}
+
+.footer-copyright {
+  padding: 8px 0;
+  background: $deep-green;
+  border-top: 1px solid darken( $deep-green, 3% );
+  color: $white;
+}
